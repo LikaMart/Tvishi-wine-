@@ -1,0 +1,1010 @@
+/* #region  Styles */
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background-color: #3b3a2f;
+  color: #f7d84c;
+  overflow-x: hidden;
+}
+
+/* Default desktop სტილები */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+header .logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+header nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #faf678;
+  font-size: 1rem;
+}
+
+.burger {
+  display: none; /* desktop-ზე burger ღილაკი არ ჩანს */
+}
+
+/* Breakpoint — მობილურისთვის */
+@media (max-width: 48rem) {
+  /* 768px = 48rem */
+  header nav ul {
+    display: none; /* მენიუ იმალება */
+  }
+
+  .burger {
+    display: block; /* ☰ ღილაკი ჩნდება */
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+h1 {
+  margin: 20px auto;
+  text-align: center;
+  font-size: 1.875rem;
+  color: #b6ab3b;
+}
+
+h2,
+p {
+  text-align: center;
+}
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem; /* სივრცე ტექსტსა და ღილაკს შორის */
+  margin-bottom: 0.625rem;
+}
+
+.about-wrapper h2 {
+  font-size: 1.5rem;
+  color: #f7d84c;
+  margin: 0;
+}
+
+.view-button {
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  background-color: transparent;
+  border: 1px solid #f7d84c;
+  color: #f7d84c;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.view-button:hover {
+  background-color: #f7d84c;
+  color: #3b3a2f;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  overflow: hidden;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 1.875rem;
+  color: #fff584;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%; /* ვერტიკალურად ცენტრში */
+  left: 50%; /* ჰორიზონტალურად ცენტრში */
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: #d4af37;
+  text-align: center;
+  font-size: 70%;
+  font-family: "Pinyon Script", cursive;
+}
+
+/* ეს არ ვიცოდი, გამოვიყენე ინტერნეტი სქროლის დიზაინისთვის, რადგან ეს უფრო მოუხდა */
+
+/* WebKit browsers  */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #d4af37, #3b3a2f);
+  border-radius: 10px;
+  border: 2px solid #3b3a2f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #fff584, #d4af37);
+}
+
+/* Firefox */
+scrollbar-color: #d4af37 transparent;
+scrollbar-width: thin;
+
+/* ეს არ ვიცოდი, გამოვიყენე ინტერნეტი სქროლის დიზაინისთვის, რადგან ეს უფრო მოუხდა */
+
+/* Overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(171, 129, 129, 0.4);
+  z-index: 2;
+  pointer-events: none; /* overlay-მ click-ი რომ არ დამიბლოკოს  */
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #fff584;
+  color: #2b1a1a;
+  font-family: "Pinyon Script", cursive;
+  font-size: 1.375rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Oval Button */
+.hero-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 40px;
+  background-color: #d4af37;
+  color: #000;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.875rem;
+}
+
+.why-us {
+  background-color: #3b3a2f;
+  color: #f7d84c;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.why-us h2 {
+  font-size: 2.25rem;
+  margin-bottom: 20px;
+  color: #fff584;
+}
+
+.why-intro {
+  font-size: 1.125rem;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.why-item {
+  background-color: #4a493d;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.why-item i {
+  font-size: 2.25rem;
+  margin-bottom: 10px;
+  color: #f7d84c;
+}
+
+.why-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #fff584;
+}
+
+.why-item p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+/* #endregion */
+
+/* #region Header */
+header {
+  background-color: rgb(83, 82, 58);
+  border-bottom: 2px solid rgb(105, 31, 31);
+  box-shadow: 0 1px 20px rgb(43, 26, 26);
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  font-family: "Pinyon Script", cursive;
+}
+
+.logo {
+  font-size: 32px;
+  margin-left: 40px;
+  color: #fff584;
+  z-index: 2;
+}
+
+/* მენიუს ცენტრში გასწორება */
+nav {
+  flex: 1; /* მენიუსთვის სივრცე */
+  display: flex;
+  justify-content: center; /* ცენტრში */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #f7d84c;
+  text-decoration: none;
+  font-size: 1.375rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #fff584;
+}
+
+/* #endregion */
+
+/* #region NAV*/
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-right: 2.5rem;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #fff584;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.375rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #f7d84c;
+}
+/* #endregion */
+
+/* #region Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* მთელ ეკრანს ფარავს */
+  background-size: cover;
+  background-position: center;
+  padding: 6.25rem 1.25rem;
+  margin-top: 5rem; /* header-ის ქვეშ */
+  text-align: center;
+  color: rgb(211, 178, 45);
+}
+/* #endregion */
+
+/* #region Product Cards */
+.product-card {
+  background-color: #2f2e26;
+  color: #f7d84c;
+  padding: 1.25rem;
+  margin: 1.25rem auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.625rem rgba(247, 216, 76, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 13.75rem; /* ბარათის სიგანე */
+}
+
+.product-card:hover {
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 0 1.25rem rgba(247, 216, 76, 0.5);
+}
+
+.product-card img {
+  width: 6.25rem;
+  height: auto;
+  margin-bottom: 0.625rem;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* #endregion */
+
+/* #region Contact - map footer & icons*/
+.contact-container {
+  display: flex;
+  justify-content: left;
+  padding: 3.125rem 1.25rem;
+  font-family: "Miss Fajardose", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 270%;
+}
+
+.contact-form {
+  background-color: transparent;
+  border: none;
+  padding: 1.875rem;
+  width: 100%;
+  max-width: 25rem;
+  border-radius: 0.625rem;
+}
+
+/* მინიმალისტური სტილი */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.875rem;
+  margin-bottom: 1.25rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.125rem solid #f7d84c; /* ყვითელი ზოლი ქვემოთ */
+  color: #f7d84c;
+  font-size: 16px;
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #f7d84c88;
+}
+
+.contact-form button {
+  background-color: #f7d84c;
+  color: #3b3a2f;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.3125rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #440606;
+}
+
+/* Footer Map */
+.footer-map {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 60vh;
+  border: none;
+  filter: grayscale(1);
+  display: block;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #3b3a2f;
+  color: #f7d84c;
+  padding: 2.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+}
+
+/* ელემენტები ერთ ხაზზე */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* ლოგო */
+.footer-left h3 {
+  font-family: "Pinyon Script", cursive;
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+/* სოციალური აიქონები */
+.social-icons {
+  display: flex;
+  gap: 0.9375rem;
+}
+
+.social-icons a {
+  color: #f7d84c;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+/* ლინკები ჰორიზონტალურად */
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links a {
+  color: #f7d84c;
+  text-decoration: none;
+  font-size: 1.125rem;
+}
+
+/* იმეილი ქვემოთ */
+.footer-email {
+  color: #f7d84c;
+  font-size: 1rem;
+  text-align: left;
+  margin: 0 auto;
+  padding-top: 0.625rem;
+}
+
+/* რუკა */
+.footer-map iframe {
+  width: 100%;
+  height: 60vh;
+  border: none;
+  filter: grayscale(1);
+}
+
+.footer-links * {
+  font-size: 1.25rem;
+}
+
+/* #endregion */
+
+/* #region about.html */
+h1 {
+  color: #f7d84c;
+  display: flex;
+  justify-content: center; /* ტექსტი ცენტრში */
+  align-items: center;
+  margin-top: 12%;
+  font-family: "Miss Fajardose", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 500%;
+}
+
+p {
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  text-align: left;
+  margin: 2%;
+}
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.about-image img {
+  width: 18.75rem;
+  height: 18.75rem;
+  object-fit: cover;
+  border-radius: 50%; /* ოვალური */
+  display: block;
+  margin: 0 auto;
+}
+
+.about-text {
+  max-width: 37.5rem;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  color: #fff584;
+  font-family: "Pinyon Script", cursive;
+  text-align: center;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+
+.learn-button {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background-color: #f7d84c;
+  color: #3b3a2f;
+  text-decoration: none;
+  border-radius: 1.875rem;
+  font-weight: bold;
+  font-size: 0.875rem;
+  transition: background 0.3s ease;
+}
+
+.learn-button:hover {
+  background-color: #fff584;
+}
+/* #endregion */
+
+/* #region shop.html */
+.shop-section {
+  background-color: #3b3a2f;
+  color: #f7d84c;
+  padding: 3.75rem 1.25rem;
+  font-family: "Georgia", serif;
+  margin: 5%;
+}
+
+.shop-section h2 {
+  font-size: 2.25rem;
+  color: #fff584;
+  text-align: center;
+  margin-bottom: 0.625rem;
+}
+
+.category-description {
+  text-align: center;
+  font-size: 1.125rem;
+  max-width: 43.75rem;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.shop-layout {
+  display: flex;
+  gap: 2.5rem;
+  max-width: 75rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.filters-open {
+  width: 15.625rem;
+  color: #f7d84c;
+}
+
+.filter-group {
+  margin-bottom: 1.875rem;
+}
+
+.filter-group h3 {
+  font-size: 1.25rem;
+  color: #fff584;
+  margin-bottom: 0.625rem;
+}
+
+.filter-group ul {
+  list-style: none;
+  padding: 0;
+}
+
+.filter-group li {
+  margin-bottom: 0.5rem;
+}
+
+.filter-group a {
+  color: #f7d84c;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.price-slider {
+  width: 100%;
+  margin: 0.625rem 0;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 0.375rem;
+  background: linear-gradient(
+    to right,
+    #d4af37,
+    #3b3a2f
+  ); /* ოქროსფერი → მუქი */
+  border-radius: 0.1875rem;
+  outline: none;
+}
+
+.price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #fff584; /* thumb ოქროსფერი */
+  cursor: pointer;
+  border: 0.125rem solid #3b3a2f;
+}
+
+select {
+  width: 100%;
+  padding: 0.375rem;
+  background-color: #3b3a2f;
+  color: #f7d84c;
+  border: 1px solid #f7d84c;
+  border-radius: 0.375rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+  gap: 1.875rem;
+  flex: 1;
+}
+
+.product-card {
+  background-color: #4a493d;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.4);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 0.625rem;
+}
+
+.product-card h4 {
+  font-size: 1.25rem;
+  color: #fff584;
+  margin-bottom: 0.3125rem;
+}
+
+.price {
+  font-size: 1rem;
+  color: #d4af37;
+}
+/* #endregion */
+
+/* #region club.html */
+.wine-benefits-grid {
+  background-color: #3b3a2f;
+  color: #f5e6a0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  gap: 1.875rem;
+  padding: 3.75rem 1.875rem;
+  font-family: "Georgia", serif;
+}
+
+.benefit-card {
+  background-color: #4f462b;
+  padding: 1.875rem;
+  border-radius: 0.5rem;
+  text-align: left;
+}
+
+.benefit-card h3 {
+  font-size: 1.375rem;
+  margin-bottom: 0.625rem;
+}
+
+.benefit-card h4 {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 0.625rem;
+}
+
+.benefit-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+/* #endregion */
+
+/* #region tours.html */
+.tour-section {
+  color: #ffd700;
+  font-family: "Pinyon Script", cursive;
+  padding: 3.75rem 1.25rem;
+}
+
+.tour-intro {
+  text-align: center;
+  max-width: 50rem;
+  margin: auto;
+  margin-bottom: 3.125rem;
+}
+
+.tour-intro h1 {
+  font-size: 2.625rem;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.tour-intro span {
+  font-family: "Pinyon Script", cursive;
+  font-size: 3rem;
+  display: block;
+  margin-top: 0.3125rem;
+}
+
+.tour-intro p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #f0e68c;
+}
+
+.tour-type {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.75rem;
+}
+
+.tour-box {
+  padding: 1.25rem;
+  max-width: 25rem;
+  border-radius: 0.625rem;
+  text-align: center;
+}
+
+.tour-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 0.9375rem;
+}
+
+.tour-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.625rem;
+  font-family: "Pinyon Script", cursive;
+}
+
+.tour-box p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #f5deb3;
+}
+
+.private-tour {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2.5rem 3.125rem;
+  border-radius: 0.625rem;
+  width: 100%;
+  height: 5%;
+}
+
+.private-image {
+  flex: 1;
+  min-width: 18.75rem;
+}
+
+.private-image img {
+  width: 100%;
+  border-radius: 0.625rem;
+}
+
+.private-text {
+  flex: 1;
+  min-width: 18.75rem;
+  padding: 1.25rem;
+  color: #ffd700;
+}
+
+.private-text h2 {
+  font-size: 1.75rem;
+  font-family: "Pinyon Script", cursive;
+  margin-bottom: 0.9375rem;
+}
+
+.private-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.book-btn {
+  background-color: #ffd700;
+  color: #1c1c1c;
+  padding: 0.625rem 1.25rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0.3125rem;
+  display: inline-block;
+}
+
+.tour-footer {
+  background-color: #53523a;
+  color: #ffd700;
+  padding: 2.5rem 1.25rem;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 75rem;
+  margin: auto;
+}
+
+.footer-left,
+.footer-right {
+  flex: 1;
+  min-width: 15.625rem;
+}
+
+.footer-brand {
+  font-family: "Pinyon Script", cursive;
+  font-size: 1.75rem;
+  margin-bottom: 0.9375rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.9375rem;
+}
+
+.social-icons a {
+  color: #ffd700;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.footer-email {
+  margin-top: 0.9375rem;
+  font-size: 1rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.875rem;
+  font-size: 0.875rem;
+}
+/* #endregion */
+
+/* #region collection.html */
+.gallery-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  font-family: "Pinyon Script", cursive;
+  color: #fff584;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+  gap: 1.25rem;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 13.75rem;
+  object-fit: cover;
+  border-radius: 0.625rem;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5625rem 1.0625rem rgba(202, 20, 20, 0.3);
+}
+
+/* #endregion */
