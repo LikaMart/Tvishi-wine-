@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tvishi Wine | Sign In</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!--HEADER-->
+    <header>
+      <div class="logo">Tvishi wine</div>
+      
+      <!-- Hidden checkbox for burger menu toggle -->
+      <input type="checkbox" id="burger-toggle" class="burger-toggle">
+      <label for="burger-toggle" class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html">Shop All</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="collection.html">Our Collection</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="tours.html">Tours</a></li>
+          <li><a href="club.html">Wine Club</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- SIGN IN SECTION -->
+    <section class="signin-section">
+      <div class="signin-container">
+        <h2>Welcome Back</h2>
+        <p class="signin-subtitle">Sign in to your account</p>
+        
+        <form class="signin-form">
+          <div class="form-group">
+            <label for="signin-email">
+              <i class="fas fa-envelope"></i> Email
+            </label>
+            <input type="email" id="signin-email" name="email" placeholder="Enter your email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="signin-password">
+              <i class="fas fa-lock"></i> Password
+            </label>
+            <input type="password" id="signin-password" name="password" placeholder="Enter your password" required />
+          </div>
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" name="remember" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="signin-button">Sign In</button>
+
+          <div class="signup-link">
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+          </div>
+
+          <div class="divider">
+            <span>OR</span>
+          </div>
+
+          <div class="social-signin">
+            <button type="button" class="social-button google">
+              <i class="fab fa-google"></i> Sign in with Google
+            </button>
+            <button type="button" class="social-button facebook">
+              <i class="fab fa-facebook-f"></i> Sign in with Facebook
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!--FOOTER-->
+    <footer class="site-footer">
+      <div class="footer-left">
+        <h3>Tvishi wine</h3>
+        <div class="social-icons">
+          <a href="https://instagram.com" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://facebook.com" target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="https://wa.me/1234567890" target="_blank"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Accessibility Statement</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Refund Policy</a></li>
+        </ul>
+        <p class="footer-email">info@mysite.com</p>
+      </div>
+    </footer>
+
+    <section class="copyright">
+      <p>© 2025 tvishi wine | Made with love</p>
+    </section>
+  </body>
+</html>
